@@ -22,7 +22,7 @@
 <% end %>
 
 <!-- build form for users to create comments -->
-<%= form_for @museum.comments.build do |f| %>
+<%= form_for @museum do |f| %>
     <%= f.label :content %><br>
     <%= f.text_area :content %><br>
 
@@ -32,7 +32,6 @@
         <br>
     <%= f.hidden_field :museum_id, :value => @museum.id %>
     <%= f.submit "Create your comment" %>
-
 <% end %>
 
 <!-- link to return to museum index -->
