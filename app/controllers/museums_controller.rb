@@ -5,7 +5,13 @@ class MuseumsController < ApplicationController
     end
     
     def show
-        @museum = Museum.find_by(params[:id])
+        @museum = Museum.find(params[:id])
+    end
+
+    private
+
+    def museum_params
+        params.require(:museum).permit(:name)
     end
     
 end

@@ -6,15 +6,18 @@ class Museum < ApplicationRecord
     # has_many :commenters, through: :comments, :class_name => "User"
 
     # lists users who have visited
-    def visitors 
+    def visitors
+        self.users.map { |user| user.username }
     end
 
     # lists users who have wishlisted the museum
     def wishlist
+        
     end
 
     # counts how many users have visited the museum
     def visitor_count
+        self.visitors.count
     end
 
     # counts how many users have wishlisted the museum

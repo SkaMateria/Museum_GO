@@ -4,22 +4,40 @@ Carlos
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+## DELIVERABLES/USER STORIES:
 
-* System dependencies
+* A user should be able to see a list of all museums in D.C.
+    - Building a museum index page and routes
 
-* Configuration
+* A user should be able to add a museum to their list of museums to visit
+    - A form/button in the museum show page to build this relationship
+    - Creates a new visit instance 
 
-* Database creation
+* A user should be able to comment on a museum page
+    - A comment form on the museum show page
+    - Delete comments, needs validation 
 
-* Database initialization
+* A user should be able to see comments on a museum page and filter/search 
+    - Think about how many comments you want to show on the show page
+    - Search comments form 
+    - NEED TO LEARN HOW TO DO THIS
 
-* How to run the test suite
+* A user should have a list of all museums they've been to, commented on
+    - In the user show page 
 
-* Services (job queues, cache servers, search engines, etc.)
+* A user should be able to login and edit their info 
+    - Login page and sessions work
+    - Edit page 
 
-* Deployment instructions
+* A user should be able to search museums by name 
+    - On the museum index page / navigation bar 
 
-* ...
+## VIEWS PAGES WE WANT: 
+
+* Museum show page
+* Museum index page
+* User show page
+* User edit page
+* Home page / login page / create new user
+
