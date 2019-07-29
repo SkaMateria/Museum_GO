@@ -3,6 +3,7 @@ User.destroy_all
 
 renwick = Museum.create(name: "Renwick Gallery", address: "1661 Pennsylvania Ave NW")
 portrait = Museum.create(name: "Portrait Gallery", address: "8th and F Sts NW")
+mymuseum = Museum.create(name: "Best Museum", address: "Mt Pleasant, D.C.")
 
 harum = User.create(username: "harum")
 carlos = User.create(username: "skamateria")
