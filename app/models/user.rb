@@ -11,9 +11,6 @@ class User < ApplicationRecord
     end
     
     def visited_museums
-        # if museum is in the user's wishlist, 
-        # needs to remove that museum from that wishlist
-
         visited = self.visits.select { |visit| visit.visited == true }
         visited.map { |visit| visit.museum }
     end

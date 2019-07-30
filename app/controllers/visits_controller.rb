@@ -1,8 +1,21 @@
 class VisitsController < ApplicationController
     
     def create
-        visit = Visit.find_or_create_by(visit_params)
-        redirect_to museum_path(visit.museum)
+        visit = Visit.new(visit_params)
+
+        if visit.valid?
+            Visit.create(visit_params)
+            redirect_to user_path(visit.user)
+        else 
+            Visit.update(visit_params)
+            redirect_to user_path(visit.user)
+        end
+
+    end
+
+    def destroy
+        # Visit.destroy(visit_params)
+        # redirect_to user_path(current_user)
     end
 
     private

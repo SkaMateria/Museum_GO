@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_30_192001) do
+ActiveRecord::Schema.define(version: 2019_07_30_200813) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_07_30_192001) do
     t.boolean "visited", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "museum_id"], name: "unique_visit", unique: true
   end
 
 end

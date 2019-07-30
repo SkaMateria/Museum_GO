@@ -31,9 +31,10 @@ application up and running.
 * A user should have a list of all museums they've been to, commented on
     - In the user show page 
 
-* A user should be able to login and edit their info 
-    - Login page and sessions work
-    - Edit page 
+* A user should be able to login and edit their info and add password
+    - Login page and sessions work, We did most of this! 
+    - Edit page - NEED TO DO 
+    - Password!!! We did it! 
 
 * A user should be able to search museums by name 
     - On the museum index page / navigation bar 

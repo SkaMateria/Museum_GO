@@ -5,7 +5,8 @@
 <h4>Museums I've visited</h4>
     <ul>
     <% @user.visited_museums.each do |museum| %>
-        <li> <%= link_to "#{museum.name}", museum_path(museum) %> </li>
+        <li> <%= link_to "#{museum.name}", museum_path(museum) %> </li> <br>
+        <%# <%= link_to "Remove this museum from my list", visit_path(museum.visits), "method" => :delete, data: {:confirm => "Are you sure?"} %>
     <% end %>
     </ul>
 <hr>

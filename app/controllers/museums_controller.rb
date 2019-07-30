@@ -1,5 +1,8 @@
 class MuseumsController < ApplicationController
 
+    def home
+    end
+    
     def index
         @museums = Museum.all
     end
@@ -7,6 +10,7 @@ class MuseumsController < ApplicationController
     def show
         @museum = Museum.find(params[:id])
     end
+
 
     private
 

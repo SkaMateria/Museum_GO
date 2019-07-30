@@ -11,12 +11,12 @@
 
   <body>
     <% if current_user %>
-    <h3>Welcome <%= current_user.username %></h3>
-     <%= link_to "logout", logout_path %>
-     <%= link_to "your profile", user_path(current_user) %>
+    Welcome, <%= link_to current_user.username, user_path(current_user) %>! ** 
+     <%= link_to "logout", logout_path %> **
     <% else %>
       <%= link_to "login", login_path %>
     <% end %>
+    <%= link_to "see all museums!", museums_path %>
     <%= yield %>
   </body>
 </html>
