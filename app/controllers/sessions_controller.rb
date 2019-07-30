@@ -14,4 +14,9 @@ class SessionsController < ApplicationController
         end
     end
 
+    def logout
+        session.delete(:user_id)
+        redirect_to museums_path
+    end
+
 end
