@@ -38,18 +38,20 @@
 <br>
 
 <!-- build form for users to create comments -->
-<div>Add a comment about <%= @museum.name %> <br>
-<%= form_for @museum.comments.build do |f| %>
-    <%= f.label :content %><br>
-    <%= f.text_area :content %><br>
+<div>
+Have thoughts or questions about <%= @museum.name %>? Add a comment: 
+<br>
+    <%= form_for @museum.comments.build do |f| %>
+        <%= f.label :content %><br>
+        <%= f.text_area :content %><br>
 
-    <%= f.label :user %><br>
-        <%= f.collection_select :user_id, User.all, :id, :username, 
-        :include_blank => true %>
-        <br>
-    <%= f.hidden_field :museum_id, :value => @museum.id %>
-    <%= f.submit "Create your comment" %>
-<% end %>
+        <%= f.label :user %><br>
+            <%= f.collection_select :user_id, User.all, :id, :username, 
+            :include_blank => true %>
+            <br>
+        <%= f.hidden_field :museum_id, :value => @museum.id %>
+        <%= f.submit "Create your comment" %>
+    <% end %>
 </div>
 
 <!-- link to return to museum index -->

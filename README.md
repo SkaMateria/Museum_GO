@@ -18,7 +18,9 @@ application up and running.
 
 * A user should be able to comment on a museum page
     - A comment form on the museum show page
+        - Done 
     - Delete comments, needs validation 
+        - Oooo
 
 * A user should be able to see comments on a museum page and filter/search 
     - Think about how many comments you want to show on the show page
