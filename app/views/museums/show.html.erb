@@ -5,7 +5,15 @@
 <!-- museum address -->
 
 <!-- button/form for user to add museum to their visit list -->
-<div>
+<div> 
+    <%= form_for @museum.visits.build do |f| %>
+        <%= f.hidden_field :museum_id, :value => @museum.id %>
+        <%= f.label :user %><br>
+        <%= f.collection_select :user_id, User.all, :id, :username, 
+        :include_blank => true %><br>
+        <%= f.submit "Add this museum to your wishlist" %>
+    <% end %>
+        <br>
 </div>
 
 <!-- buttom/form for user to note that they've been to that museum -->
@@ -17,12 +25,21 @@
 <!-- count and list of people who want to visit -->
 
 <!-- show comments -->
+<div>
 <% @museum.comments.each do |comment| %>
-    <li> <%= comment.user.username %> says: <%= comment.content %></li>
+        <% if comment.user %>
+        <%= comment.user.username %> says: <br> <%= comment.content %>
+        <% end %>  
 <% end %>
+</div>
+
+<br>
+<br>
+<br>
 
 <!-- build form for users to create comments -->
-<%= form_for @museum do |f| %>
+<div>Add a comment about <%= @museum.name %> <br>
+<%= form_for @museum.comments.build do |f| %>
     <%= f.label :content %><br>
     <%= f.text_area :content %><br>
 
@@ -33,6 +50,7 @@
     <%= f.hidden_field :museum_id, :value => @museum.id %>
     <%= f.submit "Create your comment" %>
 <% end %>
+</div>
 
 <!-- link to return to museum index -->
 <%= link_to "Return to the list of all museums in D.C.", museums_path %>
