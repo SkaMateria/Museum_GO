@@ -6,7 +6,6 @@ class MuseumsController < ApplicationController
     
     def show
         @museum = Museum.find(params[:id])
-        @museum.comments.build
     end
 
     private

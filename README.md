@@ -12,11 +12,15 @@ application up and running.
 
 * A user should be able to add a museum to their list of museums to visit
     - A form/button in the museum show page to build this relationship
-    - Creates a new visit instance 
+        - Done for now, probably needs refactoring for when we have Session
+    - Creates a new visit instance
+        - Done 
 
 * A user should be able to comment on a museum page
     - A comment form on the museum show page
+        - Done 
     - Delete comments, needs validation 
+        - Oooo
 
 * A user should be able to see comments on a museum page and filter/search 
     - Think about how many comments you want to show on the show page
