@@ -1,22 +1,41 @@
+<style>
+    .button {
+        background-color: #FF6666;
+        border: outset;
+        color: white;
+        padding: 0px 0px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 10px;
+        margin: 0px 0px;
+        cursor: pointer;
+            }
+</style>
+
 <!-- user name -->
 <h1> <%= @user.username %> </h1>
 
 <!-- list of museums visited -->
 <h4>Museums I've visited</h4>
     <ul>
-    <% @user.visited_museums.each do |museum| %>
-        <li> <%= link_to "#{museum.name}", museum_path(museum) %> </li> <br>
-        <%# <%= link_to "Remove this museum from my list", visit_path(museum.visits), "method" => :delete, data: {:confirm => "Are you sure?"} %>
-    <% end %>
+        <% @user.visited_museums.each do |museum| %>
+            <li> 
+                <%= link_to "#{museum.name}", museum_path(museum) %> 
+                <button class="button"><%= link_to "DELETE", visit_path(museum.visits), "method" => :delete, data: {:confirm => "Are you sure?"} %></button>
+            </li>
+        <% end %>
     </ul>
 <hr>
 
 <!-- wants to go to -->
 <h4>Museum Wishlist</h4>
     <ul>
-    <% @user.wishlisted_museums.each do |museum| %>
-        <li> <%= link_to "#{museum.name}", museum_path(museum) %> </li>
-    <% end %>
+        <% @user.wishlisted_museums.each do |museum| %>
+            <li>
+                <%= link_to "#{museum.name}", museum_path(museum) %> 
+            </li>
+        <% end %>
     </ul>
 
 

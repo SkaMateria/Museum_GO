@@ -14,8 +14,8 @@ class VisitsController < ApplicationController
     end
 
     def destroy
-        # Visit.destroy(visit_params)
-        # redirect_to user_path(current_user)
+        Visit.destroy(visit_params)
+        redirect_to user_path(current_user)
     end
 
     private
