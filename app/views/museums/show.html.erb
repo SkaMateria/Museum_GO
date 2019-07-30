@@ -17,7 +17,16 @@
 </div>
 
 <!-- buttom/form for user to note that they've been to that museum -->
-
+<div>
+    <%= form_for @museum.visits.build do |f| %>
+        <%= f.hidden_field :museum_id, :value => @museum.id %>
+        <%= f.label :user %><br>
+        <%= f.collection_select :user_id, User.all, :id, :username, 
+        :include_blank => true %><br>
+        <%= f.hidden_field :visited, value: true %>
+        <%= f.submit "I've been to this museum" %>
+    <% end %>
+</div>
 <!-- map!!!!!!!!!!!!!! -->
 
 <!-- count and list of people who have visited -->

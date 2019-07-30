@@ -15,7 +15,9 @@ application up and running.
         - Done for now, probably needs refactoring for when we have Session
     - Creates a new visit instance
         - Done 
-
+    - A user also knows the museums they've visited
+        - Done 
+    
 * A user should be able to comment on a museum page
     - A comment form on the museum show page
         - Done 
