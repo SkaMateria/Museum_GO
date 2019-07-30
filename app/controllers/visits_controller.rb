@@ -1,7 +1,7 @@
 class VisitsController < ApplicationController
     
     def create
-        visit = Visit.create(visit_params)
+        visit = Visit.find_or_create_by(visit_params)
         redirect_to museum_path(visit.museum)
     end
 

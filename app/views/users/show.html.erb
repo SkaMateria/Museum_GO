@@ -2,14 +2,21 @@
 <h1> <%= @user.username %> </h1>
 
 <!-- list of museums visited -->
+<h4>Museums I've visited</h4>
+    <ul>
+    <% @user.visited_museums.each do |museum| %>
+        <li> <%= link_to "#{museum.name}", museum_path(museum) %> </li>
+    <% end %>
+    </ul>
 <hr>
+
 <!-- wants to go to -->
 <h4>Museum Wishlist</h4>
-<ul>
-<% @user.wishlisted_museums.each do |museum| %>
-    <li> <%= link_to "#{museum.name}", museum_path(museum) %> </li>
-<% end %>
-</ul>
+    <ul>
+    <% @user.wishlisted_museums.each do |museum| %>
+        <li> <%= link_to "#{museum.name}", museum_path(museum) %> </li>
+    <% end %>
+    </ul>
 
 
 <!-- list of comments  -->

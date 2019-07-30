@@ -4,7 +4,6 @@ Carlos
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-
 ## DELIVERABLES/USER STORIES:
 
 * A user should be able to see a list of all museums in D.C.
@@ -42,8 +41,17 @@ application up and running.
 ## VIEWS PAGES WE WANT: 
 
 * Museum show page
+    Started
 * Museum index page
+    Mostly done 
 * User show page
+    Started
 * User edit page
+    Forgot what this is for... 
 * Home page / login page / create new user
+    Login page DONE
+    
+NEED TO DO: 
+    Need home page
+    Passwords, refactor login page/create user to have a password bit too
 
