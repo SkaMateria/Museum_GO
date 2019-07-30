@@ -2,7 +2,7 @@
 
 <div>
     <ul>
-    <% @museums.each do |museum| %>
+    <% @museums.sort_by(&:name).each do |museum| %>
         <li><%= link_to museum.name, museum_path(museum) %></li>
     <% end %>
     </ul>
