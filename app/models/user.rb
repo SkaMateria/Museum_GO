@@ -14,4 +14,5 @@ class User < ApplicationRecord
         visited = self.visits.select { |visit| visit.visited == true }
         visited.map { |visit| visit.museum }
     end
+    
 end
