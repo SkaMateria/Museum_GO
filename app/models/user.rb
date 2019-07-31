@@ -17,8 +17,9 @@ class User < ApplicationRecord
 
     #lists all museums user has visited starting at the most recently visited
     def visited_by_date
-        newest_visit = self.visits.sort_by(&:updated_at).reverse
-        newest_vist.visited_museums
+        ordered_visits = self.visits.sort_by(&:updated_at).reverse
+        ordered_visited = ordered_visits.select { |visit| visit.visited == true }
+        ordered_visited.map { |visit| visit.museum }
     end
 
     #creates an array = [number of museums visited, number of museums put in wishlist, number of museums not visited]
@@ -31,9 +32,11 @@ class User < ApplicationRecord
         array
     end
 
-    
+    #creates array of all visits to museums by all users with the current user at the beginning
     def users_by_amount_visited
-
+        user_visits = self.visited_museums.count
+        other_user_visits = User.where.not(id: self.id).map { |user| user.visited_museums.count }
+        other_user_visits.unshift(user_visits)
     end
 
 
