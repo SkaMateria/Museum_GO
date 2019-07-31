@@ -34,17 +34,21 @@
 
 <!-- count and list of people who want to visit -->
 
+<br>
+<br>
+<br>
 <!-- show comments -->
 
 <div>
-<% @museum.comments.each do |comment| %>
-        <% if comment.user %>
-        <%= comment.user.username %> says: <br> <%= comment.content %> <br>
-            <% if comment.user == current_user %>
-                <%= link_to "Edit comment", edit_comment_path(comment) %>
-            <% end %>
-        <% end %>  
-<% end %>
+    <% @museum.comments.each do |comment| %>
+            <% if comment.user %>
+            <%= comment.user.username %> says: <br> <%= comment.content %> <br>
+                <% if comment.user.id == @current_user.id %>
+                    <%= link_to "Edit comment", edit_comment_path(comment) %>
+                <% end %>
+                <br>
+            <% end %>  
+    <% end %>
 </div>
 
 <br>
@@ -53,7 +57,7 @@
 
 <!-- build form for users to create comments -->
 <div>
-Have thoughts or questions about <%= @museum.name %>? Add a comment: 
+    Have thoughts or questions about <%= @museum.name %>? Add a comment: 
 <br>
     <%= form_for @museum.comments.build do |f| %>
         <%= f.text_area :content %><br>
@@ -71,5 +75,4 @@ Have thoughts or questions about <%= @museum.name %>? Add a comment:
 </div>
 
 <!-- link to return to museum index -->
-
 <%= link_to "Return to the list of all museums in D.C.", museums_path %>

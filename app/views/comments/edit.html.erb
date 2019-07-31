@@ -1,0 +1,6 @@
+<%= form_for @comment do |f| %>
+        <%= f.text_area :content %><br>
+        <%= f.hidden_field :user_id, :value => @comment.user.id %>
+        <%= f.hidden_field :museum_id, :value => @comment.museum.id %>
+        <%= f.submit "Update your comment" %>
+<% end %>
