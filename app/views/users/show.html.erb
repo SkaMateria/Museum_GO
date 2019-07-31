@@ -1,3 +1,4 @@
+<!-- style modifiers for buttons -->
 <style>
     .button {
         background-color: #FF6666;
@@ -34,6 +35,7 @@
         <% @user.wishlisted_museums.each do |museum| %>
             <li>
                 <%= link_to "#{museum.name}", museum_path(museum) %> 
+                <button class="button"><%= link_to "DELETE", visit_path(museum), "method" => :delete, data: {:confirm => "Are you sure?"} %></button>
             </li>
         <% end %>
     </ul>
