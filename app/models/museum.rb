@@ -27,14 +27,5 @@ class Museum < ApplicationRecord
     # list comments
 
     # count comments
-    
-
-    # def self.search(term)
-    #     if term
-    #         where('name LIKE ?', "%#{term}")
-    #     else 
-    #         Museum.all
-    #     end
-    # end
 
 end
