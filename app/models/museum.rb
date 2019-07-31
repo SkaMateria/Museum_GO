@@ -47,5 +47,5 @@ class Museum < ApplicationRecord
     # list comments
 
     # count comments
-    
+
 end

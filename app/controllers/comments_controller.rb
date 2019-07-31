@@ -5,6 +5,17 @@ class CommentsController < ApplicationController
         redirect_to museum_path(comment.museum)
     end
 
+    def edit
+        @comment = Comment.find(params[:id])
+    end
+
+    def update
+        @comment = Comment.find(params[:id])
+        @comment.update(comment_params)
+        @comment.save
+        redirect_to museum_path(@comment.museum)
+    end
+
     private
 
     def comment_params
