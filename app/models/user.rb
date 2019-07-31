@@ -46,7 +46,4 @@ class User < ApplicationRecord
     end
 
 
-=======
-    
->>>>>>> d320b85fac65092e5fb42fd9fa2e43047a2b323a
 end
