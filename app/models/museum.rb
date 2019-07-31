@@ -1,5 +1,5 @@
 class Museum < ApplicationRecord
-    has_many :visits
+    has_many :visits, dependent: :destroy
     has_many :users, through: :visits
 
     has_many :comments

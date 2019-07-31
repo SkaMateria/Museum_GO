@@ -14,7 +14,7 @@ class VisitsController < ApplicationController
     end
 
     def destroy
-        Visit.destroy(visit_params)
+        Visit.destroy(params[:id])
         redirect_to user_path(current_user)
     end
 

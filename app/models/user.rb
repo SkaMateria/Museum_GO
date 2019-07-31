@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :visits
+    has_many :visits, dependent: :destroy
     has_many :museums, through: :visits
     has_many :comments
     validates :username, presence: true, uniqueness: true
