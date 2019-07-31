@@ -27,38 +27,34 @@ class Museum < ApplicationRecord
         self.wishlisted.count
     end
     
+    # lists users who have not visited or added to wishlist
     def not_visitors
         User.all - self.users
     end
 
+    # counts how many users have not visited or wishlisted the museum
     def not_visitors_count
         self.not_visitors.count
     end
 
+    # lists only museums that have been visited
     def self.visited_museums
         Museum.all.map { |museum| museum.visits }.reject(&:empty?)
     end
 
+    # counts the museums that have been visited
     def self.visited_museums_count
         Museum.visited_museums.count
     end
 
+    # lists all museums that have not been visited or wishlisted
     def self.not_visited_museums
         Museum.all.map { |museum| museum.visits }.select(&:empty?)
     end
 
+    # counts the museums that have not been visited
     def self.not_visited_museums_count
         Museum.not_visited_museums.count
     end
-
-    #creates an array where the current museum is first 
-    # and any other museum with visits follows in an effort to compare
-    def compared_to_other_museums
-        museum_visits = self.visits
-        other_museum_visits = Museum.where.not(id: self.id).map { |museum| museum.visits }.reject(&:empty?)
-        all_museum_visits = []
-        all_museum_visits += [museum_visits, other_museum_visits]
-        all_museum_visits
-    end 
-
+    
 end
