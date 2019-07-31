@@ -11,6 +11,7 @@ class MuseumsController < ApplicationController
                 "%#{params[:term]}%")
             else
                 Museum.all 
+            end
     end
     
     def show
