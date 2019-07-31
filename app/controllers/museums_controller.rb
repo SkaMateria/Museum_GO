@@ -1,5 +1,7 @@
 class MuseumsController < ApplicationController
 
+    before_action :authorized, except: [:home, :index, :show]
+
     def home
     end
     

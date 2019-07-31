@@ -1,5 +1,7 @@
 class VisitsController < ApplicationController
 
+    before_action :authorized
+
     def create
         visit = Visit.new(visit_params)
         if visit.valid?
