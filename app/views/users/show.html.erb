@@ -22,7 +22,7 @@
         <% @user.visited_museums.each do |museum| %>
             <li> 
                 <%= link_to "#{museum.name}", museum_path(museum) %> 
-                <button class="button"><%= link_to "DELETE", visit_path(museum.visits), "method" => :delete, data: {:confirm => "Are you sure?"} %></button>
+                <button class="button"><%= link_to "DELETE", visit_path(museum), "method" => :delete, data: {:confirm => "Are you sure?"} %></button>
             </li>
         <% end %>
     </ul>
