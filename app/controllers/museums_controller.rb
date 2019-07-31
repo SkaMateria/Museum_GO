@@ -2,7 +2,7 @@ class MuseumsController < ApplicationController
 
     def home
     end
-    
+        
     def index
         @museums = Museum.all
     end

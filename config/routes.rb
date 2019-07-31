@@ -7,5 +7,4 @@ Rails.application.routes.draw do
   post "login", to: "sessions#create"
   get "logout", to: "sessions#logout"
   get "home", to: "museums#home"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

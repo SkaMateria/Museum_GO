@@ -15,32 +15,54 @@
 </style>
 
 <!-- user name -->
-<h1> <%= @user.username %> </h1>
+<h1> Welcome to your profile page, <%= @user.username %>! </h1>
 
 <!-- list of museums visited -->
-<h4>Museums I've visited</h4>
+<h4>Museums you've visited</h4>
     <ul>
         <% @user.visited_museums.each do |museum| %>
             <li> 
                 <%= link_to "#{museum.name}", museum_path(museum) %> 
-                <button class="button"><%= link_to "DELETE", visit_path(museum), "method" => :delete, data: {:confirm => "Are you sure?"} %></button>
+                <button class="button">
+                    <%= link_to "DELETE", visit_path(museum), 
+                    "method" => :delete, data: {:confirm => "Are you sure?"} %>
+                </button>
             </li>
         <% end %>
     </ul>
+
 <hr>
 
 <!-- wants to go to -->
-<h4>Museum Wishlist</h4>
+<h4>Museums you want to visit</h4>
+    <div>
     <ul>
         <% @user.wishlisted_museums.each do |museum| %>
             <li>
                 <%= link_to "#{museum.name}", museum_path(museum) %> 
-                <button class="button"><%= link_to "DELETE", visit_path(museum), "method" => :delete, data: {:confirm => "Are you sure?"} %></button>
+                <button class="button">
+                    <%= link_to "DELETE", visit_path(museum), 
+                    "method" => :delete, data: {:confirm => "Are you sure?"} %>
+                </button>
             </li>
         <% end %>
     </ul>
+    </div>
 
+<hr>
 
 <!-- list of comments  -->
+<h4>Comments you've written</h4> 
+    <div>
+    <ul>
+        <% @user.comments.each do |cmnt| %>
+            <li>On <%= link_to cmnt.museum.name, museum_path(cmnt.museum) %>:<br>
+            <%= cmnt.content %> 
+            </li>
+        <% end %>
+    </ul>
+    <div>
 
+
+    
 <!-- my rate of activity -->
