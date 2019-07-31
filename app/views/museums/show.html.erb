@@ -8,9 +8,7 @@
 <div> 
     <%= form_for @museum.visits.build do |f| %>
         <%= f.hidden_field :museum_id, :value => @museum.id %>
-        <%= f.label :user %><br>
-        <%= f.collection_select :user_id, User.all, :id, :username, 
-        :include_blank => true %><br>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.submit "Add this museum to your wishlist" %>
     <% end %>
         <br>
@@ -20,9 +18,7 @@
 <div>
     <%= form_for @museum.visits.build do |f| %>
         <%= f.hidden_field :museum_id, :value => @museum.id %>
-        <%= f.label :user %><br>
-        <%= f.collection_select :user_id, User.all, :id, :username, 
-        :include_blank => true %><br>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :visited, value: true %>
         <%= f.submit "I've been to this museum" %>
     <% end %>
