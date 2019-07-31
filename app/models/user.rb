@@ -16,7 +16,6 @@ class User < ApplicationRecord
         visited = self.visits.select { |visit| visit.visited == true }
         visited.map { |visit| visit.museum }
     end
-<<<<<<< HEAD
 
     #lists all museums user has visited starting at the most recently visited
     def visited_by_date
