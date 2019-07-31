@@ -5,6 +5,12 @@ class CommentsController < ApplicationController
         redirect_to museum_path(comment.museum)
     end
 
+    def edit
+    end
+
+    def update
+    end
+
     private
 
     def comment_params
