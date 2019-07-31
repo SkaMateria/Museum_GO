@@ -27,7 +27,8 @@ class Museum < ApplicationRecord
         self.wishlist_count
     end
 
-    #creates an array where the current museum is first and any other museum with visits follows in an effort to compare
+    #creates an array where the current museum is first 
+    # and any other museum with visits follows in an effort to compare
     def compared_to_other_museums
         museum_visits = self.visits
         other_museum_visits = Museum.where.not(id: self.id).map { |museum| museum.visits }.reject(&:empty?)
