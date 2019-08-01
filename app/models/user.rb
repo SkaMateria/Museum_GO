@@ -36,7 +36,7 @@ class User < ApplicationRecord
 
     # list of all comments starting from most recent
     def comments_history
-        self.comments.map { |user| user.content }.reverse
+        self.comments.map { |comment| comment.content }.reverse
     end
 
     def comments_history_count

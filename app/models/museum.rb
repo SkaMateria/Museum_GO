@@ -37,7 +37,7 @@ class Museum < ApplicationRecord
         self.not_visitors.count
     end
 
-    # lists only museums that have been visited
+    # collects all instances of visits 
     def self.visited_museums
         Museum.all.map { |museum| museum.visits }.reject(&:empty?)
     end
