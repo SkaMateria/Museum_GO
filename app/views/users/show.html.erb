@@ -15,11 +15,11 @@
 </style>
 
 <!-- user name -->
-<h1> Welcome to your profile page, <%= @user.username %>! </h1>
+<h1 class="jumbotron"> Welcome to your profile page, <%= @user.username %>! </h1>
 
 <!-- list of museums visited -->
 <h4>Museums you've visited</h4>
-    <ul>
+    <ul class="list-group">
         <% @user.visited_museums.each do |museum| %>
             <li> 
                 <%= link_to "#{museum.name}", museum_path(museum) %> 
@@ -56,8 +56,10 @@
     <div>
     <ul>
         <% @user.comments.each do |cmnt| %>
-            <li>On <%= link_to cmnt.museum.name, museum_path(cmnt.museum) %>:<br>
-            <%= cmnt.content %> 
+            <li>For <%= link_to cmnt.museum.name, museum_path(cmnt.museum) %>:<br>
+            <%= cmnt.content %><br>
+            posted on:
+            <%= cmnt.created_at %>
             </li>
         <% end %>
     </ul>
