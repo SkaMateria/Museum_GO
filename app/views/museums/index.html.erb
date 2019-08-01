@@ -5,10 +5,26 @@
     <%= submit_tag 'Search museums by name', name: nil %>
 <% end %>
 
-<div>
-    <ul>
+
+    <body>
+<div class="row">
     <% @museums.sort_by(&:name).each do |museum| %>
-        <li><%= link_to museum.name, museum_path(museum) %></li>
+        <div class="card border-info text-center m-1" style="width: 28rem;">
+            <div class="view overlay">
+                <div class="col-sm">
+                    <div class="card-header">
+                        <h6 align="center"></h6>
+                            <%= link_to museum.name, museum_path(museum) %> 
+                        </h6>
+                    </div>
+                </div>
+                        <img src="https://www.fieldmuseum.org/sites/default/files/styles/3x2_1400w/public/2018_03_06_fieldmuseum_lhewett-01.jpg" class="img-fluid" alt="">              
+                        <a href="#" class="btn btn-primary">Add to Wishlist</a>
+                        <a href="#" class="btn btn-primary">You've Visited Before</a>
+            </div>
+        </div>
     <% end %>
-    </ul>
 </div>
+
+
+    </body>

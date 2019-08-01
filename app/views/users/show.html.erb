@@ -1,29 +1,15 @@
-<!-- style modifiers for buttons -->
-<style>
-    .button {
-        background-color: #FF6666;
-        border: outset;
-        color: white;
-        padding: 0px 0px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 10px;
-        margin: 0px 0px;
-        cursor: pointer;
-            }
-</style>
+
 
 <!-- user name -->
 <h1> Welcome to your profile page, <%= @user.username %>! </h1>
 
 <!-- list of museums visited -->
 <h4>Museums you've visited</h4>
-    <ul>
+    <ul class="list-group">
         <% @user.visited_museums.each do |museum| %>
-            <li> 
+            <li class="list-group-item list-group-item-primary"> 
                 <%= link_to "#{museum.name}", museum_path(museum) %> 
-                <button class="button">
+                <button type="button" class="btn btn-default btn-sm">
                     <%= link_to "DELETE", visit_path(museum), 
                     "method" => :delete, data: {:confirm => "Are you sure?"} %>
                 </button>
@@ -36,11 +22,11 @@
 <!-- wants to go to -->
 <h4>Museums you want to visit</h4>
     <div>
-    <ul>
+    <ul class="list-group">
         <% @user.wishlisted_museums.each do |museum| %>
-            <li>
+            <li class="list-group-item list-group-item-success">
                 <%= link_to "#{museum.name}", museum_path(museum) %> 
-                <button class="button">
+                <button type="button" class="btn btn-default btn-sm">
                     <%= link_to "DELETE", visit_path(museum), 
                     "method" => :delete, data: {:confirm => "Are you sure?"} %>
                 </button>
