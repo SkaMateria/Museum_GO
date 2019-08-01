@@ -1,33 +1,51 @@
-<h1> <%= @museum.name %> </h1>
 
-<h4> <%= @museum.address %> </h4>
+
+
+
+<div class="card m-6" style="width: 20rem;">
+
+    <!--Card image-->
+    <div class="view overlay">
+      <img src="https://www.fieldmuseum.org/sites/default/files/styles/3x2_1400w/public/2018_03_06_fieldmuseum_lhewett-01.jpg" class="img-fluid" alt="">
+      <a href="#">
+        <div class="mask rgba-black-slight"></div>
+      </a>
+    </div>    <div class="card-body">
+
+<h2 class="card-title"> <%= @museum.name %> </h2>
+
+<h6 class="card-text"> <%= @museum.address %> </h6>
+<br>
 
 <!-- museum address -->
 
 <!-- button/form for user to add museum to their visit list -->
-<div> 
+
     <% if current_user %>
     <%= form_for @museum.visits.build do |f| %>
         <%= f.hidden_field :museum_id, :value => @museum.id %>
         <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.submit "Add this museum to your wishlist" %>
+        <%= f.submit :"Add to wishlist", class: "btn btn-primary"%>
     <% end %>
-        <br>
+    <br>
     <% end %>
-</div>
+
+
 
 <!-- buttom/form for user to note that they've been to that museum -->
-<div>
+
     <% if current_user %>
     <%= form_for @museum.visits.build do |f| %>
         <%= f.hidden_field :museum_id, :value => @museum.id %>
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :visited, value: true %>
-        <%= f.submit "I've been to this museum" %>
+        <%= f.submit :"I've visited this museum", class: "btn btn-primary" %>
     <% end %>
     <% end %>
-</div>
 
+
+</div>
+</div>
 <!-- map!!!!!!!!!!!!!! -->
 
 <!-- count and list of people who have visited -->
