@@ -1,0 +1,13 @@
+<%= form_for @comment do |f| %>
+        <%= f.text_area :content %><br>
+
+        <% if current_user %>
+            <%= f.label "You're posting this comment as: #{current_username}"%><br>
+            <%= f.hidden_field :user_id, :value => current_user.id %>            
+            <%= f.hidden_field :museum_id, :value => @museum.id %>
+        <% else %>
+            <%= link_to "Please login to create a comment", login_path %> <br>  
+        <% end %>
+            
+        <%= f.submit "Create your comment" %>
+<% end %>
