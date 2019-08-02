@@ -1,51 +1,71 @@
-
+<%# <!-- style modifiers for buttons -->
+<style>
+    .button {
+        background-color: #FF6666;
+        border: outset;
+        color: white;
+        padding: 0px 0px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 10px;
+        margin: 0px 0px;
+        cursor: pointer;
+            }
+</style> %>
 
 <!-- user name -->
-<h1> Welcome to your profile page, <%= @user.username %>! </h1>
+<h1 class="jumbotron"> Welcome to your profile page, <%= @user.username %>! </h1>
 
 <!-- list of museums visited -->
-<h4>Museums you've visited</h4>
-    <ul class="list-group">
-        <% @user.visited_museums.each do |museum| %>
-            <li class="list-group-item list-group-item-primary"> 
-                <%= link_to "#{museum.name}", museum_path(museum) %> 
-                <button type="button" class="btn btn-default btn-sm">
-                    <%= link_to "DELETE", visit_path(museum), 
-                    "method" => :delete, data: {:confirm => "Are you sure?"} %>
-                </button>
-            </li>
-        <% end %>
-    </ul>
+<div class="container">
+    <h4>Museums you've visited</h4>
+        <ul class="list-group">
+            <% @user.visited_museums.each do |museum| %>
+                <li> 
+                    <%= link_to "#{museum.name}", museum_path(museum) %> 
+                    <button class="button">
+                        <%= link_to "DELETE", visit_path(museum), 
+                        "method" => :delete, data: {:confirm => "Are you sure?"} %>
+                    </button>
+                </li>
+            <% end %>
+        </ul>
+</div>
 
 <hr>
 
 <!-- wants to go to -->
-<h4>Museums you want to visit</h4>
-    <div>
-    <ul class="list-group">
-        <% @user.wishlisted_museums.each do |museum| %>
-            <li class="list-group-item list-group-item-success">
-                <%= link_to "#{museum.name}", museum_path(museum) %> 
-                <button type="button" class="btn btn-default btn-sm">
-                    <%= link_to "DELETE", visit_path(museum), 
-                    "method" => :delete, data: {:confirm => "Are you sure?"} %>
-                </button>
-            </li>
-        <% end %>
-    </ul>
-    </div>
+<div class="container">
+    <h4>Museums you want to visit</h4>
+        <ul class="list-group">
+            <% @user.wishlisted_museums.each do |museum| %>
+                <li>
+                    <%= link_to "#{museum.name}", museum_path(museum) %> 
+                    <button class="button">
+                        <%= link_to "DELETE", visit_path(museum), 
+                        "method" => :delete, data: {:confirm => "Are you sure?"} %>
+                    </button>
+                </li>
+            <% end %>
+        </ul>
+</div>
 
 <hr>
 
 <!-- list of comments  -->
-<h4>Comments you've written</h4> 
-    <div>
-    <ul>
-        <% @user.comments.each do |cmnt| %>
-            <li>On <%= link_to cmnt.museum.name, museum_path(cmnt.museum) %>:<br>
-            <%= cmnt.content %> 
-            </li>
-        <% end %>
-    </ul>
-    <div>    
+
+<div class="container">
+    <h4>Comments you've written</h4> 
+        <ul class="list-group">
+            <% @user.comments.each do |cmnt| %>
+                <li>For <%= link_to cmnt.museum.name, museum_path(cmnt.museum) %>:<br>
+                <%= cmnt.content %><br>
+                <%= link_to "Edit comment", edit_comment_path(cmnt) %> <br>
+                posted on:
+                <%= cmnt.created_at.strftime('%A, %d %b %Y %l:%M %p') %><br>
+                </li>
+            <% end %>
+        </ul>
+</div>    
 <!-- my rate of activity -->
