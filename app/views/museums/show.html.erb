@@ -46,7 +46,9 @@
             on: <%= comment.created_at.strftime('%A, %d %b %Y %l:%M %p') %> <br>
                 <% if @current_user %>
                     <% if comment.user.id == @current_user.id %>
-                        <%= link_to "Edit comment", edit_comment_path(comment) %>
+                        <p class="font-weight-light">
+                            <%= link_to "Edit comment", edit_comment_path(comment) %>
+                        </p>
                     <% end %>
                 <% end %>
                 <br>
