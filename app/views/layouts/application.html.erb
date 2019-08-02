@@ -24,6 +24,9 @@
 <!-- Login and Logout button reacts to user's login status -->
     <% if current_user%>
       <li class="nav-item">
+        <a class="nav-link disabled"> Welcome, <%= current_username %>! </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="/logout">Logout</a>
       </li>
     <%else%>
@@ -38,13 +41,13 @@
           Navigate
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/museums">Museums</a>
+          <a class="dropdown-item" href="/museums">Browse D.C. museums</a>
           <% if !current_user %>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/users/new">Create Account</a>
           <%else%>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<%= user_path(current_user)%>">User Page</a>
+          <a class="dropdown-item" href="<%= user_path(current_user)%>">Your user profile page</a>
         <%end%>
         </div>
       </li>
