@@ -61,8 +61,9 @@
             <% @user.comments.each do |cmnt| %>
                 <li>For <%= link_to cmnt.museum.name, museum_path(cmnt.museum) %>:<br>
                 <%= cmnt.content %><br>
+                <%= link_to "Edit comment", edit_comment_path(cmnt) %> <br>
                 posted on:
-                <%= cmnt.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
+                <%= cmnt.created_at.strftime('%A, %d %b %Y %l:%M %p') %><br>
                 </li>
             <% end %>
         </ul>
