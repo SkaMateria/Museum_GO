@@ -1,6 +1,13 @@
-<%= form_for @comment do |f| %>
-        <%= f.text_area :content %><br>
-        <%= f.hidden_field :user_id, :value => @comment.user.id %>
-        <%= f.hidden_field :museum_id, :value => @comment.museum.id %>
-        <%= f.submit "Update your comment" %>
-<% end %>
+<br>
+<br>
+<div class="container">
+        <h6> Edit your comment for 
+                <%= link_to @comment.museum.name, museum_path(@comment.museum) %> 
+        </h6>
+        <%= form_for @comment do |f| %>
+                <%= f.text_area :content %><br>
+                <%= f.hidden_field :user_id, :value => @comment.user.id %>
+                <%= f.hidden_field :museum_id, :value => @comment.museum.id %>
+                <%= f.submit "Update your comment" %>
+        <% end %>
+</div>
