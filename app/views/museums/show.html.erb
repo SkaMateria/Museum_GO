@@ -51,13 +51,14 @@
 <!-- count and list of people who have visited -->
 
 <!-- count and list of people who want to visit -->
+    
 
 <br>
 <br>
 <br>
 <!-- show comments -->
 
-<div>
+<div class="container">
     <% @museum.comments.each do |comment| %>
             <% if comment.user %>
             <%= link_to comment.user.username, user_path(comment.user) %> says: <br> <%= comment.content %> <br>
@@ -79,7 +80,7 @@
 <br>
 
 <!-- build form for users to create comments -->
-<div>
+<div class="container">
     Have thoughts or questions about <%= @museum.name %>? Add a comment: 
 <br>
     <%= form_for @museum.comments.build do |f| %>
@@ -98,4 +99,5 @@
 </div>
 
 <!-- link to return to museum index -->
+
 <%= link_to "Return to the list of all museums in D.C.", museums_path %>
