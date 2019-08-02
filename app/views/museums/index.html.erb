@@ -1,12 +1,12 @@
 <h1>Museums in D.C.</h1>
 
+<!-- moved search form to navbar -->
 <!-- <%= form_tag(museums_path, method: :get) do %>
     <%= text_field_tag :term, params[:term] %>
     <%= submit_tag 'Search museums by name', name: nil %>
 <% end %> -->
 
-
-    <body>
+<body>
 <div class="row">
     <% @museums.sort_by(&:name).each do |museum| %>
         <div class="card border-info text-center m-2" style="width: 28rem;">
