@@ -18,9 +18,26 @@
                         </h6>
                     </div>
                 </div>
-                        <img src="https://www.fieldmuseum.org/sites/default/files/styles/3x2_1400w/public/2018_03_06_fieldmuseum_lhewett-01.jpg" class="img-fluid" alt="">              
-                        <a href="#" class="btn btn-success btn-sm">Add to Wishlist</a>
-                        <a href="#" class="btn btn-success btn-sm">You've Visited Before</a>
+                    <img src="https://www.fieldmuseum.org/sites/default/files/styles/3x2_1400w/public/2018_03_06_fieldmuseum_lhewett-01.jpg" class="img-fluid" alt="">      
+                                
+                    <!-- <a href="#" class="btn btn-success btn-sm">Add to Wishlist</a> -->
+
+                    <%= form_for current_user.visits.build do |f| %>
+                        <%= f.hidden_field :user_id, :value => current_user.id %>
+                        <%= f.hidden_field :museum_id, :value => museum.id %>
+                        <%= f.submit :"Add to Wishlist", class: "btn btn-success btn-sm"%>
+                    <% end %>
+                    
+                     <br>
+
+                        <!-- <a href="#" class="btn btn-success btn-sm">You've Visited Before</a> -->
+                    <%= form_for current_user.visits.build do |f| %>
+                        <%= f.hidden_field :user_id, :value => current_user.id %>
+                        <%= f.hidden_field :museum_id, :value => museum.id %>
+                        <%= f.hidden_field :visited, value: true %>
+                        <%= f.submit :"Add to Visited", class: "btn btn-success btn-sm" %>
+                    <% end %>
+
             </div>
         </div>
     <% end %>
