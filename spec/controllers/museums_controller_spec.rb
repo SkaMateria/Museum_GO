@@ -13,6 +13,7 @@ describe MuseumsController, type: :controller do
     render_template(:show)
     end
 
+    
 
 end
     

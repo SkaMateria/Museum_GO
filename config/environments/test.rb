@@ -6,6 +6,9 @@ Rails.application.configure do
   # your test database is "scratch space" for the test suite and is wiped
   # and recreated between test runs. Don't rely on the data there!
   config.cache_classes = true
+  require_relative '../../app/controllers/application_controller.rb'
+  require_relative '../../app/controllers/museums_controller.rb'
+
 
   # Do not eager load code on boot. This avoids loading your whole application
   # just for the purpose of running a single test. If you are using a tool that
