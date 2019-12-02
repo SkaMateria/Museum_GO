@@ -6,12 +6,13 @@ class MuseumsController < ApplicationController
     end
         
     def index
-        @museums = if params[:term]
-            Museum.where('name LIKE ?', 
-                "%#{params[:term]}%")
-            else
-                Museum.all 
-            end
+        # @museums = if params[:term]
+        #     Museum.where('name LIKE ?', 
+        #         "%#{params[:term]}%")
+        #     else
+        #         Museum.all 
+        #     end 
+        render json: Museum.all
     end
     
     def show

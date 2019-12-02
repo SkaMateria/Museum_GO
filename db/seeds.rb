@@ -17,7 +17,7 @@ puts "#{t.name}, #{t.address} saved"
 end
 #outputs how many museums were created after seeding
 puts "There are now #{Museum.count} rows in the transactions table"
- 
+
 
 
 

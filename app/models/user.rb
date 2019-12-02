@@ -1,5 +1,8 @@
 class User < ApplicationRecord
+    # self.visits
+    # self.where('SELECT * FROM visits WHERE user_id = self.id')
     has_many :visits, dependent: :destroy
+    # self.visits.museums
     has_many :museums, through: :visits
     has_many :comments
     validates :username, presence: true, uniqueness: true
@@ -27,7 +30,7 @@ class User < ApplicationRecord
     
     # list of museums you have not visited or wishlisted
     def not_visited
-        Museum.all - self.wishlisted_museums - self.visited_museums
+        Museum.all - self.museums
     end
 
     def not_visited_count
